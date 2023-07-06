@@ -1,0 +1,10 @@
+<launch>
+    <param name="use_sim_time" value="false"/>
+    <node name="vins_fusion" pkg="vins_fusion" type="vins_mono_node" output="screen">
+        <param name="configPath"        value="$(find vins_fusion)/../config/euroc/mono.yaml"/>
+        <param name="initPath"        value="$(find vins_fusion)/../config/euroc/basolver.yaml"/>
+    </node>
+
+    <node name="loop_fusion" pkg="loop_fusion" type="loop_node" output="screen" args="$(find loop_fusion)/../config/euroc/mono.yaml" />
+
+</launch>

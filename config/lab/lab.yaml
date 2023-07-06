@@ -1,0 +1,99 @@
+#  system params
+resultPath: /root/share/myGit/mycode/vins_rgbd/src/vins_rgbd/test_rgbd/results
+logLevel: 0
+logFreq: 30
+saveTrajectory: true
+vioTrajectory: vioPath
+loopTrajectory: loopPath
+
+# ros subscriber topic
+leftImgTopic: /camera/infra1/image_rect_raw
+rightImgTopic: /camera/infra2/image_rect_raw
+depthImgTopic: /camera/aligned_depth_to_infra1/image_raw
+colorImgTopic: /camera/color/image_raw
+imuTopic: /camera/imu
+
+# img relative params
+leftCalibPath: /root/share/myGit/mycode/vins_rgbd/src/vins_rgbd/test_rgbd/config/lab/leftInfra848x480.yaml
+rightCalibPath: /root/share/myGit/mycode/vins_rgbd/src/vins_rgbd/test_rgbd/config/lab/rightInfra848x480.yaml
+imgHeight: 480
+imgWidth: 848
+depthScale: 1000.0
+depthTh: 20.0
+baseLine: 0.0500309
+clahe: true
+borderSize: 10
+
+# multi sensor relative params
+Stereo: false
+Depth: false
+syncTh: 0.005
+freqRatio: 3
+
+# estimator params
+maxSolverTime: 0.06
+maxSolverIterations: 10
+keyframeParallax: 10.0
+outlierReprojectTh: 5.0
+lineOutlierReprojectTh: 3.0
+
+# extrinsic from camera to imu
+estimateExtrinsic: false
+TicLeft:  [ 0.99997682,  0.00503933,  0.00457837, -0.0093734, 
+           -0.00506034,  0.99997667,  0.00458778,  0.00572269,
+           -0.00455514, -0.00461084,  0.999979,    0.02762095,
+            0.,          0.,          0.,          1.        ]
+TicRight: [ 0.99996766,  0.00491694,  0.00636467,  0.04114136, 
+           -0.00494372,  0.99997897,  0.00419701,  0.00544197, 
+           -0.00634389, -0.00422834,  0.99997094,  0.02722754, 
+            0.,          0.,          0.,          1.        ]
+
+#  imu noise params
+accN: 0.283546
+accW: 6.8419802201779613e-04
+gyrN: 0.0304607
+gyrW: 1.6847425259467627e-05
+gNorm: 9.81007
+
+# imu td params
+td: 0.005
+estimateTD: false
+
+# loop relative params
+briefPath: /root/share/myGit/mycode/vins_rgbd/src/vins_rgbd/test_rgbd/config/briefPattern.yaml
+vocabularyPath: /root/share/myGit/mycode/vins_rgbd/src/vins_rgbd/test_rgbd/config/brief_k10L6.bin
+
+# point feature params
+pointExtractMaxNum: 120
+pointExtractMinDist: 30
+pointMatchRansacTh: 1.0
+
+# line feature params
+lineExtractScale: 1.2
+lineExtractOctaves: 1
+lineExtractMinLength: 40.0
+lineExtractMaxNum: 60
+lineExtractMinDist: 20
+
+# spatial line feature params
+spatialLineExtractMinLength: 1.0
+spatialLineExtractTh: 0.6
+spatialLineExtractMahDist: 1.5
+
+# plane feature params
+planeAHCMaxStep: 100000
+planeAHCMinAreaTh: 6000
+planeAHCHeight: 10
+planeAHCWidth: 10
+planeExtractMaxNum: 10
+planeExtractAreaTh: 100
+planeExtractDisTh: 0.04
+
+# manhattan extract params
+mhdLineNoiseRatio: 0.5
+mhdLineVpHypoIteration: 500
+mhdLineVpHypoAngleTh: 2.0
+mhdLineClusterAngleTh: 1.0
+mhdLineClusterDistTh: 1.0
+
+

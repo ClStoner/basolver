@@ -1,0 +1,94 @@
+%YAML:1.0
+
+#  system params
+resultPath: results
+logLevel: 0
+logFreq: 30
+saveTrajectory: true
+vioTrajectory: vioPath
+loopTrajectory: loopPath
+
+# ros subscriber topic
+leftImgTopic: /cam0/image_raw
+rightImgTopic: /cam1/image_raw
+depthImgTopic: /camera/aligned_depth_to_infra1/image_raw
+l2rOFImgTopic: /optical_flow/left2right
+p2cOFImgTOpic: /optical_flow/prev2curr
+imuTopic: /imu0
+
+# img relative params
+leftCalibPath: config/euroc/cam0_pinhole.yaml
+rightCalibPath: config/euroc/cam1_pinhole.yaml
+imgHeight: 480
+imgWidth: 752
+depthScale: 1000.0
+depthTh: 20.0
+baseLine: -1
+clahe: false
+borderSize: 10
+
+# multi sensor relative params
+Stereo: false
+Depth: false
+OpticalFlow: false
+syncTh: 0.005
+freqRatio: 2
+
+# estimator params
+maxSolverTime: 0.06
+maxSolverIterations: 10
+keyframeParallax: 10.0
+outlierReprojectTh: 3.0
+
+# extrinsic from camera to imu
+estimateExtrinsic: false
+TicLeft:  [0.0148655429818, -0.999880929698, 0.00414029679422, -0.0216401454975,
+           0.999557249008, 0.0149672133247, 0.025715529948,  -0.064676986768,
+           -0.0257744366974, 0.00375618835797, 0.999660727178, 0.00981073058949,
+           0, 0, 0, 1]
+TicRight: [0.0125552670891, -0.999755099723, 0.0182237714554, -0.0198435579556,
+           0.999598781151, 0.0130119051815, 0.0251588363115, 0.0453689425024,
+          -0.0253898008918, 0.0179005838253, 0.999517347078, 0.00786212447038,
+          0, 0, 0, 1]
+
+# imu noise params
+accN: 0.1
+accW: 0.01
+gyrN: 0.001
+gyrW: 0.0001
+gNorm: 9.81007
+
+# imu td params
+td: 0.0
+estimateTD: false
+
+# loop relative params
+useLoop: true
+briefPath: config/briefPattern.yml
+vocabularyPath: config/brief_k10L6.bin
+
+# point feature params
+pointExtractType: 0 # 0 for fast, 1 for harris, 2 for goodfeaturetotrack
+pointExtractMaxNum: 150
+pointExtractMinDist: 30
+pointMatchRansacTh: 1.0
+
+# BA_solver
+init_config_file : config/euroc/basolver.yaml
+max_solver_time: 0.04  # max solver itration time (ms), to guarantee real time
+max_num_iterations: 8   # max solver itrations, to guarantee real time
+keyframe_parallax: 10.0 # keyframe selection threshold (pixel)
+lossfunction_type: 1             # 损失核函数类型， 0 : 不适用损失核函数， 1 : Cauchy核函数 2 ：Huber, 3 ： Tukey
+delta: 1.0                       # 使用损失核函数的参数
+num_of_thread: 1
+num_of_cam: 1
+progress_to_stdout: 0
+window_size: 10
+stereo: 0
+point_type: 0   # 地图点表示形式，0 ： 表示逆深度表示形式，1 ： 表示3D表示形式，默认使用逆深度表示形式。
+problem_type: 0 # 优化问题类型， 0： 表示BA问题， 1 ： 表示PoseGraph问题，默认是BA问题
+
+
+
+
+

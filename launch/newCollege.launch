@@ -1,0 +1,6 @@
+<launch>
+    <param name="use_sim_time" value="false"/>
+    <node name="test_rgbd" pkg="test_rgbd" type="ros_wrapper" output="screen">
+        <param name="configPath"        value="$(find test_rgbd)/config/newCollege/lab.yaml"/>
+    </node>
+</launch>

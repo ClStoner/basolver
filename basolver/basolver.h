@@ -1,0 +1,26 @@
+#ifndef BASOLVER_H
+#define BASOLVER_H
+
+#include "include/corrector.h"
+#include "include/problem.h"
+#include "include/edge.h"
+#include "include/costIMUfunction.h"
+#include "include/costfunction.h"
+#include "include/costXYZfunction.h"
+#include "include/costOneFrameTwoCamfunction.h"
+#include "include/costTwoFrameTwoCamfunction.h"
+#include "include/costPoseGraphfunction.h"
+#include "include/costFourPoseGraphfunction.h"
+#include "include/vertex.h"
+#include "include/pose.h"
+#include "include/pose_yaw.h"
+#include "include/feature_xyz.h"
+#include "include/feature_inverse_depth.h"
+#include "include/motion.h"
+#include "include/parameters.h"
+#include "include/integration_base.h"
+#include "include/eigen_types.h"
+#include "include/loss_function.h"
+#include "include/marginalization.h"
+#include "include/mymatrix.h"
+#endif //BASOLVER_H

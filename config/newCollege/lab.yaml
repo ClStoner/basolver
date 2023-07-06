@@ -1,0 +1,104 @@
+#  system params
+resultPath: /root/share/myGit/mycode/vins_rgbd/src/vins_rgbd/test_rgbd/results
+logLevel: 0
+logFreq: 30
+saveTrajectory: true
+vioTrajectory: vioPath
+loopTrajectory: loopPath
+
+# ros subscriber topic
+leftImgTopic: /camera/infra1/image_rect_raw
+rightImgTopic: /camera/infra2/image_rect_raw
+depthImgTopic: /camera/aligned_depth_to_infra1/image_raw
+colorImgTopic: /camera/color/image_raw
+imuTopic: /camera/imu
+
+# img relative params
+leftCalibPath: /root/share/myGit/mycode/vins_rgbd/src/vins_rgbd/test_rgbd/config/newCollege/leftInfra848x480.yaml
+rightCalibPath: /root/share/myGit/mycode/vins_rgbd/src/vins_rgbd/test_rgbd/config/newCollege/rightInfra848x480.yaml
+imgHeight: 480
+imgWidth: 848
+depthScale: 1000.0
+depthTh: 20.0
+baseLine: -1.0
+clahe: true
+borderSize: 10
+
+# multi sensor relative params
+Stereo: true
+Depth: false
+syncTh: 0.005
+freqRatio: 3
+
+# estimator params
+maxSolverTime: 0.06
+maxSolverIterations: 10
+keyframeParallax: 10.0
+outlierReprojectTh: 5.0
+lineOutlierReprojectTh: 3.0
+
+# extrinsic from camera to imu
+estimateExtrinsic: false
+TicLeft:  [ 0.99999395, -0.00301404, -0.00173641, -0.00583189, 
+            0.00301154,  0.99999443, -0.00144116, -0.01742036,
+            0.00174074,  0.00143592,  0.99999745,  0.01592047,
+            0.,          0.,          0.,          1.        ]
+TicRight: [ 0.99998986, -0.0030345,  -0.00332727,  0.04421182, 
+            0.00302971,  0.99999437, -0.00144238, -0.01728303, 
+            0.00333163,  0.00143229,  0.99999342,  0.01592412, 
+            0.,          0.,          0.,          1.        ]
+
+#  imu noise params
+accN: 0.019748424
+accW: 0.000106
+gyrN: 0.003288769
+gyrW: 4e-06
+gNorm: 9.81007
+
+# imu td params
+td: 0.0
+estimateTD: false
+
+# loop relative params
+useLoop: false
+hfnetMatchTh: 5.0
+briefMatchTh: 40.0
+pnpReprojectTh: 4.0
+briefPath: /root/share/myGit/mycode/vins_rgbd/src/vins_rgbd/test_rgbd/config/briefPattern.yml
+# vocabularyPath: /root/share/myGit/mycode/vins_rgbd/src/vins_rgbd/test_rgbd/config/brief_k10L6.bin
+vocabularyPath: /root/share/myGit/mycode/vins_rgbd/src/vins_rgbd/test_rgbd/3rdParty/fbow/vocabularies/DXSLAM.fbow
+
+# point feature params
+pointExtractMaxNum: 150
+pointExtractMinDist: 30
+pointMatchRansacTh: 1.0
+
+# line feature params
+lineExtractScale: 1.2
+lineExtractOctaves: 1
+lineExtractMinLength: 40.0
+lineExtractMaxNum: 60
+lineExtractMinDist: 20
+
+# spatial line feature params
+spatialLineExtractMinLength: 1.0
+spatialLineExtractTh: 0.6
+spatialLineExtractMahDist: 1.5
+
+# plane feature params
+planeAHCMaxStep: 100000
+planeAHCMinAreaTh: 6000
+planeAHCHeight: 10
+planeAHCWidth: 10
+planeExtractMaxNum: 10
+planeExtractAreaTh: 100
+planeExtractDisTh: 0.04
+
+# manhattan extract params
+mhdLineNoiseRatio: 0.5
+mhdLineVpHypoIteration: 500
+mhdLineVpHypoAngleTh: 6.0
+mhdLineClusterAngleTh: 6.0
+mhdLineClusterDistTh: 1000.0
+
+
